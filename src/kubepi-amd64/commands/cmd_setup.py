@@ -37,18 +37,18 @@ def init(ctx, kube_context):
     # Kubectl parameters
     kubectl_stable = s.check_output(
         ['curl', '-s', 'https://storage.googleapis.com/kubernetes-release/release/stable.txt']).decode('utf-8')
-    kubectl_url = 'https://storage.googleapis.com/kubernetes-release/release/{}/bin/linux/arm/kubectl'.format(
+    kubectl_url = 'https://storage.googleapis.com/kubernetes-release/release/{}/bin/linux/amd64/kubectl'.format(
         kubectl_stable.split('\n')[0])
 
     # Helm parameters
-    helm_url = 'https://get.helm.sh/helm-v3.3.1-{}-arm.tar.gz'.format(ostype)
+    helm_url = 'https://get.helm.sh/helm-v3.3.1-{}-amd64.tar.gz'.format(ostype)
 
     # K3D parameters
-    k3d_url = 'https://github.com/rancher/k3d/releases/download/v3.0.1/k3d-{}-arm'.format(
+    k3d_url = 'https://github.com/rancher/k3d/releases/download/v3.0.1/k3d-{}-amd64'.format(
         ostype)
 
     # Skaffold parameters
-    skaffold_url = 'https://github.com/nushkovg/skaffold/releases/download/v1.15.0-arm/skaffold-{}-arm'.format(
+    skaffold_url = 'https://github.com/nushkovg/skaffold/releases/download/v1.15.0-amd64/skaffold-{}-amd64'.format(
         ostype)
 
     with click_spinner.spinner():
